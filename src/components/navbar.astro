@@ -2,7 +2,7 @@
 
 ---
 
-<header class="bg-white bg-opacity-5 text-white shadow-lg hidden md:block">
+<header id="inicio" class="bg-white bg-opacity-5 text-white shadow-lg hidden md:block z-10">
     <div class="container mx-auto flex items-center h-24">
         <a href="" class="flex items-center justify-center">
             <img
@@ -15,21 +15,21 @@
         <nav class="contents font-semibold text-base lg:text-lg">
             <ul class="mx-auto flex items-center">
                 <li class="p-5 xl:p-8 btn from-top active">
-                    <a href="">
+                    <a href="inicio">
                         <span>Inicio</span>
                     </a>
                 </li>
-                <li class="p-5 xl:p-8 btn from-top">
+                <li class="p-5 xl:p-8 btnnavbar from-top">
                     <a href="">
                         <span>Quienes Somos</span>
                     </a>
                 </li>
-                <li class="p-5 xl:p-8 btn from-top">
+                <li class="p-5 xl:p-8 btnnavbar from-top">
                     <a href="">
                         <span>Servicios</span>
                     </a>
                 </li>
-                <li class="p-2 xl:p-8 btn from-top">
+                <li class="p-5 xl:p-8 btnnavbar from-top">
                     <a href="">
                         <span>Proyectos</span>
                     </a>
@@ -39,7 +39,7 @@
         <button>
             <a
                 href=""
-                class="bg-black bg-opacity-5 text-white p-2 rounded-lg btn from-top"
+                class="p-5 xl:p-8 btnnavbar from-top"
             >
                 <span>Contacto</span>
             </a>
@@ -51,37 +51,42 @@
     body {
         background: black;
         --def: black;
-        --inv: #fff;
+        --inv: white;
         flex-direction: column;
+        position: relative;
     }
-    .btn {
+    .btnnavbar {
         position: relative;
         color: var(--inv);
         transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
         cursor: pointer;
         user-select: none;
+        z-index: 1;
     }
 
-    .btn:before,
-    .btn:after {
+    .btnnavbar:before,
+    .btnnavbar:after {
         content: "";
         position: absolute;
         transition: inherit;
-        z-index: -1;
+        z-index: 1;
     }
 
-    .btn:hover {
+    .btnnavbar:hover {
         color: var(--def);
         transition-delay: 0.5s;
+        z-index: 1;
     }
 
-    .btn:hover:before {
+    .btnnavbar:hover:before {
         transition-delay: 0s;
+        z-index: 1;
     }
 
-    .btn:hover:after {
+    .btnnavbar:hover:after {
         background: var(--inv);
         transition-delay: 0.35s;
+        z-index: -1;
     }
     .from-top:before,
     .from-top:after {
@@ -110,5 +115,18 @@
     *:before,
     *:after {
         box-sizing: border-box;
+    }
+    .active{
+        background: var(--inv);
+        color: var(--def);
+    }
+    .active:before,
+    .active:after {
+        background: var(--def);
+    }
+    .active:hover{
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+        background: var(--def);
+        color: var(--inv);
     }
 </style>
