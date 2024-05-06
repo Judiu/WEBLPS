@@ -1,0 +1,82 @@
+
+    body {
+        background: black;
+        --def: black;
+        --inv: white;
+        flex-direction: column;
+        position: relative;
+    }
+    .btnnavbar {
+        position: relative;
+        color: var(--inv);
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+        cursor: pointer;
+        user-select: none;
+        z-index: 1;
+    }
+
+    .btnnavbar:before,
+    .btnnavbar:after {
+        content: "";
+        position: absolute;
+        transition: inherit;
+        z-index: 1;
+    }
+
+    .btnnavbar:hover {
+        color: var(--def);
+        transition-delay: 0.5s;
+        z-index: 1;
+    }
+
+    .btnnavbar:hover:before {
+        transition-delay: 0s;
+        z-index: 1;
+    }
+
+    .btnnavbar:hover:after {
+        background: var(--inv);
+        transition-delay: 0.35s;
+        z-index: -1;
+    }
+    .from-top:before,
+    .from-top:after {
+        left: 0;
+        height: 0;
+        width: 100%;
+    }
+
+    .from-top:before {
+        bottom: 0;
+        border: 1px solid var(--inv);
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .from-top:after {
+        top: 0;
+        height: 0;
+    }
+
+    .from-top:hover:before,
+    .from-top:hover:after {
+        height: 100%;
+    }
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    .active{
+        background: var(--inv);
+        color: var(--def);
+    }
+    .active:before,
+    .active:after {
+        background: var(--def);
+    }
+    .active:hover{
+        transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+        background: var(--def);
+        color: var(--inv);
+    }

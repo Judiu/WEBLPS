@@ -1,0 +1,17 @@
+---
+import './ButtomStyle.css'
+const { title } = Astro.props;
+const { icon } = Astro.props;
+const { link } = Astro.props;
+---
+
+<a class="buttonscotizar relative z-5 " href={link} target="_blank">  
+  <button class="neumorphic">
+    <i class={icon}></i>
+    <span>{title}</span>
+  </button>
+</a>
+
+<script>
+  // NUll
+</script>
